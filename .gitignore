@@ -1,0 +1,8 @@
+# Sensitive credentials
+.env
+
+# Generated reports
+*.csv
+*.html
+*.log
+*.png
