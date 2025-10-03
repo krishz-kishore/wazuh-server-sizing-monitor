@@ -29,13 +29,8 @@ USERNAME = os.getenv("WAZUH_USER")
 PASSWORD = os.getenv("WAZUH_PASS")
 VERIFY_SSL = False
 
-# Get current user's home directory
-HOME_DIR = str(Path.home())
-
-# Set output directory inside the home folder
-OUTPUT_DIR = os.path.join(HOME_DIR, "monitor")
-
-# Ensure the directory exists
+# System-wide folder for reports
+OUTPUT_DIR = "/var/local/server_sizing"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 CSV_FILE = os.path.join(OUTPUT_DIR, 'server_sizing_master.csv')
@@ -401,7 +396,7 @@ def main():
     if df is None:
         df = pd.DataFrame([metrics])
     else:
-        df['date'] = pd.to_datetime(df['date'])
+        df['date'] = pd.to_datetime(df['date'], format='%Y-%m-%d', errors='coerce')
 
     disk_png, ingest_png, agents_png = generate_graphs(df)
     proj_180 = make_projection(df, 180)
