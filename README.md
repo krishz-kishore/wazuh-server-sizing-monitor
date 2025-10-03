@@ -59,7 +59,7 @@ This project provides a **server sizing monitoring tool** for Wazuh deployments.
 
 ## Automating with Cron
 
-Add the following line with `crontab -e`:
+Add the following line with `sudo crontab -e`:
 
 ```bash
 0 0 * * * /bin/bash -c 'echo "===== Run started: $(date) =====" >> /var/local/server_sizing/server_sizing_cron.log; /usr/bin/python3 server_sizing_monitor.py >> /var/local/server_sizing/server_sizing_cron.log 2>&1; echo "===== Run ended: $(date) =====" >> /var/local/server_sizing/server_sizing_cron.log; echo "" >> /var/local/server_sizing/server_sizing_cron.log'
