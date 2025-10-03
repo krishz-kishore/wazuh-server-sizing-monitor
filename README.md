@@ -32,8 +32,8 @@ This project provides a **server sizing monitoring tool** for Wazuh deployments.
 
 1. **Clone the repo:**
    ```bash
-   git clone https://github.com/<your-username>/wazuh-server-sizing.git
-   cd wazuh-server-sizing
+   git clone https://github.com/krishz-kishore/wazuh-server-sizing-monitor.git
+   cd wazuh-server-sizing-monitor
    ```
 
 2. **Install requirements:**
@@ -62,7 +62,7 @@ This project provides a **server sizing monitoring tool** for Wazuh deployments.
 Add the following line with `crontab -e`:
 
 ```bash
-0 0 * * * /bin/bash -c 'echo "===== Run started: $(date) =====" >> /home/wazuh-user/monitor/server_sizing_cron.log; /usr/bin/python3 /home/wazuh-user/monitor/server_sizing_monitor.py >> /home/wazuh-user/monitor/server_sizing_cron.log 2>&1; echo "===== Run ended: $(date) =====" >> /home/wazuh-user/monitor/server_sizing_cron.log; echo "" >> /home/wazuh-user/monitor/server_sizing_cron.log'
+0 0 * * * /bin/bash -c 'echo "===== Run started: $(date) =====" >> /var/local/server_sizing/server_sizing_cron.log; /usr/bin/python3 server_sizing_monitor.py >> /var/local/server_sizing/server_sizing_cron.log 2>&1; echo "===== Run ended: $(date) =====" >> /var/local/server_sizing/server_sizing_cron.log; echo "" >> /var/local/server_sizing/server_sizing_cron.log'
 ```
 
 This runs the script daily at midnight and logs activity.
