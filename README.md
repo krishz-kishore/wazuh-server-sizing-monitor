@@ -15,6 +15,10 @@ This project provides a **server sizing monitoring tool** for Wazuh deployments.
   - **PNG charts** for disk growth, ingestion, and agent count
 - Supports **cron scheduling** with timestamped logs.
 
+⚠️ This script may require sudo privileges if:
+- You want to track directories that need root access (like /var/lib, /root, /var/ossec)
+- You store the report in a system-wide folder (like /var/local/server_sizing)
+
 ---
 
 ## Example Outputs
